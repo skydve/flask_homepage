@@ -1,34 +1,21 @@
 from flask import Flask, render_template, request
 import numpy as np
-import keras.models
-import re
-import sys
-import os
 import base64
 from scipy.misc import imread, imresize
 
-# sys.path.append(os.path.abspath('./model'))
-# from load import *
-from model import load
-
+from models import load
 
 app = Flask(__name__)
 
-#from load.py
-global model, graph
 model, graph = load.init()
-
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 def convertImage(imgData):
 	with open('output.png','wb') as output:
 		output.write(base64.decodebytes(imgData[22:]))
 
-@app.route('/mnist')
-def mnist():
-    return render_template('mnist.html')
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/predict/',methods=['GET','POST'])
 def predict():
@@ -45,5 +32,5 @@ def predict():
 
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=8004, debug=True)
+  app.run(host='0.0.0.0', port=8005, debug=True)
  
