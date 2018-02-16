@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 import numpy as np
 import base64
 from scipy.misc import imread, imresize
-
 from models import load
 
 app = Flask(__name__)
@@ -32,5 +31,5 @@ def predict():
 
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=8005, debug=True)
+  app.run(host='0.0.0.0', port=8006, debug=True)
  

@@ -2,6 +2,12 @@
 
 {% block body %}
 
-{% include 'includes/_index.html' %}
+<div id="fullpage">    
+<!-- <div> -->
+    {% include 'includes/_index.html' %}
+    {% include 'includes/_plotly.html' %}
+    {% include 'includes/_projects.html' %}
+    {% include 'includes/_contacts.html' %}
+</div>
 
 {% endblock %}
